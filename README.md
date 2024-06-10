@@ -27,7 +27,7 @@ Color Catcher is an interactive web-based game where players must click on appea
 - Responsive design suitable for various devices.
 
 ## Screenshots
-![Game Start Menu](https://source.unsplash.com/random/800x600?game)
+![Game Start Menu](https://imgur.com/a/Sr9038l)
 ![In-Game Screenshot](https://source.unsplash.com/random/800x600?gameplay)
 
 ## Getting Started
