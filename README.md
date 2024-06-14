@@ -74,4 +74,3 @@ This project is licensed under the ColorCatcher License - see the [LICENSE](LICE
 - [Ninjahawk](https://github.com/ninjahawk) for being the sole developer.
 - [Beefed69](https://youtu.be/dQw4w9WgXcQ?feature=shared) for the awesome background.
 - [Google Fonts](https://fonts.google.com/) for the Roboto font.
-- [Unsplash](https://unsplash.com/) for placeholder images.
