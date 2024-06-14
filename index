@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Catcher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+        }
+        .game-container {
+            display: none;
+            position: relative;
+            width: 90vw;
+            height: 90vh;
+            border: 2px solid #333;
+            background-color: #000;
+            overflow: hidden;
+        }
+        .circle, .power-up {
+            position: absolute;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .circle:hover, .power-up:hover {
+            transform: scale(1.1);
+        }
+        .score, .timer {
+            position: absolute;
+            top: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 10;
+        }
+        .score {
+            left: 10px;
+        }
+        .timer {
+            right: 10px;
+        }
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 0px 15px rgba(255, 69, 0, 0.5);
+        }
+        .menu button {
+            padding: 15px 30px;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: #ff4500;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.2s;
+            margin-top: 20px;
+        }
+        .menu button:hover {
+            transform: scale(1.1);
+        }
+        .high-score {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .title {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ff4500;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <div class="title">COLOR CATCHER!</div>
+        <button id="start-button">Start</button>
+        <div class="high-score">High Score: 0</div>
+    </div>
+    <div class="game-container">
+        <div class="score">Score: 0</div>
+        <div class="timer">Time: 15</div>
+    </div>
+
+    <script>
+        const startButton = document.getElementById('start-button');
+        const gameContainer = document.querySelector('.game-container');
+        const scoreDisplay = document.querySelector('.score');
+        const timerDisplay = document.querySelector('.timer');
+        const highScoreDisplay = document.querySelector('.high-score');
+        let score = 0;
+        let highScore = 0;
+        let timeLeft = 15;
+        let circleSize = 80;
+        let circles = [];
+        let gameInterval;
+        let dotTimer = 750;
+
+        if (localStorage.getItem('highScore')) {
+            highScore = parseInt(localStorage.getItem('highScore'), 10);
+            highScoreDisplay.textContent = `High Score: ${highScore}`;
+        }
+
+        function getRandomColor() {
+            const colors = ['#ff0000', '#0000ff', '#ffff00', '#006400']; // bright red, bright blue, bright yellow, dark green
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function isOverlapping(newCircle) {
+            return circles.some(circle => {
+                const rect1 = newCircle.getBoundingClientRect();
+                const rect2 = circle.getBoundingClientRect();
+                return !(rect1.right < rect2.left || 
+                         rect1.left > rect2.right || 
+                         rect1.bottom < rect2.top || 
+                         rect1.top > rect2.bottom);
+            });
+        }
+
+        function createCircle() {
+            let circle;
+            const isPowerUp = Math.random() < 0.2; // 20% chance for a power-up
+            do {
+                circle = document.createElement('div');
+                circle.classList.add(isPowerUp ? 'power-up' : 'circle');
+                circle.style.backgroundColor = getRandomColor();
+                circle.style.top = Math.random() * (gameContainer.offsetHeight - circleSize - 20) + 20 + 'px';
+                circle.style.left = Math.random() * (gameContainer.offsetWidth - circleSize) + 'px';
+                circle.style.width = circleSize + 'px';
+                circle.style.height = circleSize + 'px';
+            } while (isOverlapping(circle) || (parseInt(circle.style.top) <= 50 && parseInt(circle.style.left) <= 200));
+
+            circle.addEventListener('click', () => {
+                if (isPowerUp) {
+                    if (Math.random() < 0.5) {
+                        timeLeft += 2; // Add 2 seconds
+                        timerDisplay.textContent = `Time: ${timeLeft}`;
+                    } else {
+                        score += 2; // Add 2 points
+                        scoreDisplay.textContent = `Score: ${score}`;
+                    }
+                } else {
+                    score++;
+                    scoreDisplay.textContent = `Score: ${score}`;
+                }
+                gameContainer.removeChild(circle);
+                circles = circles.filter(c => c !== circle);
+                if (circles.length < 2) {
+                    createCircle();
+                }
+            });
+            gameContainer.appendChild(circle);
+            circles.push(circle);
+            setTimeout(() => {
+                if (circles.includes(circle)) {
+                    gameContainer.removeChild(circle);
+                    circles = circles.filter(c => c !== circle);
+                    if (circles.length < 2) {
+                        createCircle();
+                    }
+                }
+            }, dotTimer);
+        }
+
+        function startGame() {
+            score = 0;
+            timeLeft = 15;
+            circleSize = 80;
+            dotTimer = 750;
+            scoreDisplay.textContent = `Score: ${score}`;
+            timerDisplay.textContent = `Time: ${timeLeft}`;
+            gameContainer.style.display = 'block';
+            document.querySelector('.menu').style.display = 'none';
+
+            gameInterval = setInterval(() => {
+                timeLeft--;
+                timerDisplay.textContent = `Time: ${timeLeft}`;
+                if (timeLeft <= 10 && timeLeft > 5) {
+                    dotTimer = 500;
+                } else if (timeLeft <= 5 && timeLeft > 1) {
+                    dotTimer = 1000; // Increase time to make dots slower
+                    circleSize = 100; // Increase circle size
+                }
+                if (timeLeft <= 0) {
+                    clearInterval(gameInterval);
+                    setTimeout(() => {
+                        alert(`Time's up! Your final score is ${score}`);
+                        if (score > highScore) {
+                            highScore = score;
+                            localStorage.setItem('highScore', highScore);
+                            highScoreDisplay.textContent = `High Score: ${highScore}`;
+                        }
+                        resetGame();
+                    }, 100);
+                }
+                if (circles.length < 1) {
+                    createCircle();
+                }
+            }, 1000);
+
+            createCircle();
+        }
+
+        function resetGame() {
+            gameContainer.style.display = 'none';
+            document.querySelector('.menu').style.display = 'flex';
+            circles.forEach(circle => gameContainer.removeChild(circle));
+            circles = [];
+        }
+
+        startButton.addEventListener('click', startGame);
+    </script>
+</body>
+</html>
