@@ -2,6 +2,10 @@
 
 Color Catcher is an interactive web-based game where players must click on appearing colored circles to score points. The game includes power-ups that add time or extra points, and the objective is to score as many points as possible before time runs out. High scores are saved using `localStorage`.
 
+## Play using netlify
+
+[Play using netlify in your browser!](https://666be45b30c6602e6f6b3ab2--calm-paletas-d79b6f.netlify.app/)
+
 ## Table of Contents
 - [Color Catcher](#color-catcher)
   - [Table of Contents](#table-of-contents)
