@@ -50,7 +50,7 @@ To run this game locally, you need a web browser that supports HTML5, CSS3, and 
 - Try to beat your high score!
 
 ## Game Mechanics
-- Dots appear randomly within the game container.
+- Colored dots appear randomly within the game container.
 - Clicking on dots increases the score.
 - Player has three lives, after their life counter is zero the game will end.
 
