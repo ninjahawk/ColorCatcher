@@ -4,7 +4,7 @@ Color Catcher is an interactive web-based game where players must click on appea
 
 ## Play using netlify
 
-[Play using netlify in your browser by tapping this link!](https://666be45b30c6602e6f6b3ab2--calm-paletas-d79b6f.netlify.app/)
+[Tap this link to play!](https://666be45b30c6602e6f6b3ab2--calm-paletas-d79b6f.netlify.app/)
 
 ## Table of Contents
 - [Color Catcher](#color-catcher)
