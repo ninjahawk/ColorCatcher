@@ -19,7 +19,7 @@ Color Catcher is an interactive web-based game where players must click on appea
 
 ## Features
 - Simple and intuitive gameplay.
-- Randomly appearing colored circles and power-ups.
+- Randomly appearing colored dots.
 - High score saving using browser's `localStorage`.
 - Responsive design suitable for various devices.
 
