@@ -46,7 +46,7 @@ To run this game locally, you need a web browser that supports HTML5, CSS3, and 
 ## Usage
 - Click the "Start" button to begin the game.
 - Click on the appearing colored dots to earn points.
-- Avoid letting circles disappear and be sure to not mistap to keep the game going.
+- Avoid letting dots disappear and be sure to not mistap to keep the game going.
 - Try to beat your high score!
 
 ## Game Mechanics
