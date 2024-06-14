@@ -12,8 +12,6 @@ Color Catcher is an interactive web-based game where players must click on appea
     - [Installation](#installation)
   - [Usage](#usage)
   - [Game Mechanics](#game-mechanics)
-    - [Power-Ups](#power-ups)
-    - [Difficulty Levels](#difficulty-levels)
   - [Built With](#built-with)
   - [Contributing](#contributing)
   - [License](#license)
@@ -22,7 +20,6 @@ Color Catcher is an interactive web-based game where players must click on appea
 ## Features
 - Simple and intuitive gameplay.
 - Randomly appearing colored circles and power-ups.
-- Dynamic difficulty adjustment based on remaining time.
 - High score saving using browser's `localStorage`.
 - Responsive design suitable for various devices.
 
@@ -50,23 +47,12 @@ To run this game locally, you need a web browser that supports HTML5, CSS3, and 
 - Click the "Start" button to begin the game.
 - Click on the appearing circles to earn points.
 - Avoid letting circles disappear to keep the game going.
-- Look out for power-ups to boost your score or extend your time.
 - Try to beat your high score!
 
 ## Game Mechanics
-- The game starts with a timer set to 15 seconds.
 - Circles appear randomly within the game container.
 - Clicking on circles increases the score.
-- If a power-up appears, it provides either extra points or additional time when clicked.
-
-### Power-Ups
-- **Extra Time**: Adds 2 seconds to the timer.
-- **Bonus Points**: Adds 2 points to the score.
-
-### Difficulty Levels
-- The game difficulty adjusts dynamically:
-  - When time is between 10 and 5 seconds, circles appear more frequently.
-  - When time is less than 5 seconds, circle size increases and appearance slows down to increase difficulty.
+- Player has three lives, after their life counter is zero the game will end.
 
 ## Built With
 - HTML5
@@ -85,5 +71,7 @@ Contributions are welcome! Please follow these steps:
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
+- [Ninjahawk](https://github.com/ninjahawk) for being the sole developer.
+- [Beefed69](https://youtu.be/dQw4w9WgXcQ?feature=shared) for the awesome background.
 - [Google Fonts](https://fonts.google.com/) for the Roboto font.
 - [Unsplash](https://unsplash.com/) for placeholder images.
