@@ -26,9 +26,9 @@ Color Catcher is an interactive web-based game where players must click on appea
 - High score saving using browser's `localStorage`.
 - Responsive design suitable for various devices.
 
-## Screenshots
-![Game Start Menu](https://imgur.com/a/Sr9038l)
-![In-Game Screenshot](https://source.unsplash.com/random/800x600?gameplay)
+## Play using netlify
+
+![Follow this link to play in your browser!](https://666be45b30c6602e6f6b3ab2--calm-paletas-d79b6f.netlify.app/)
 
 ## Getting Started
 
@@ -45,10 +45,6 @@ To run this game locally, you need a web browser that supports HTML5, CSS3, and 
    cd color-catcher
    ```
 3. Open `index.html` in your preferred web browser.
-
-## Play using netlify
-
-![Follow this link to play in your browser!](https://666be45b30c6602e6f6b3ab2--calm-paletas-d79b6f.netlify.app/)
 
 ## Usage
 - Click the "Start" button to begin the game.
