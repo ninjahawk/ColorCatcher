@@ -46,9 +46,9 @@ To run this game locally, you need a web browser that supports HTML5, CSS3, and 
    ```
 3. Open `index.html` in your preferred web browser.
 
-## Play using netlify link below
+## Play using netlify
 
-https://666be45b30c6602e6f6b3ab2--calm-paletas-d79b6f.netlify.app/
+(Follow this link)[https://666be45b30c6602e6f6b3ab2--calm-paletas-d79b6f.netlify.app/]
 
 ## Usage
 - Click the "Start" button to begin the game.
