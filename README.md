@@ -6,7 +6,6 @@ Color Catcher is an interactive web-based game where players must click on appea
 - [Color Catcher](#color-catcher)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
-  - [Screenshots](#screenshots)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
