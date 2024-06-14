@@ -45,13 +45,13 @@ To run this game locally, you need a web browser that supports HTML5, CSS3, and 
 
 ## Usage
 - Click the "Start" button to begin the game.
-- Click on the appearing circles to earn points.
-- Avoid letting circles disappear to keep the game going.
+- Click on the appearing colored dots to earn points.
+- Avoid letting circles disappear and be sure to not mistap to keep the game going.
 - Try to beat your high score!
 
 ## Game Mechanics
-- Circles appear randomly within the game container.
-- Clicking on circles increases the score.
+- Dots appear randomly within the game container.
+- Clicking on dots increases the score.
 - Player has three lives, after their life counter is zero the game will end.
 
 ## Built With
